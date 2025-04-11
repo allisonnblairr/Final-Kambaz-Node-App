@@ -7,8 +7,8 @@ const schema = new mongoose.Schema(
     title: String,
     content: String,
     points: Number,
-    answers: { type: [], ref: "PossibleAnswerModel" },
+    answers: [{ type: String, ref: "PossibleAnswerModel" }]
   },
-  { collection: "questions" }
+  { collection: "questions", timestamps: true }
 );
 export default schema;

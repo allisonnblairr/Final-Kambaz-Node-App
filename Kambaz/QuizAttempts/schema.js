@@ -5,9 +5,9 @@ const schema = new mongoose.Schema(
     userId: { type: String, ref: "UserModel" },
     quizId: { type: String, ref: "QuizModel" },
     score: Number,
-    dateTaken: String,
-    answers: { type: [], ref: "GivenAnswerModel" },
+    dateTaken: Date,
+    answers: [{ type: String, ref: "GivenAnswerModel" }],
   },
-  { collection: "quizattempts" }
+  { collection: "quizattempts", timestamps: true }
 );
 export default schema;

@@ -5,6 +5,6 @@ const schema = new mongoose.Schema(
     answerContent: String,
     questionId: { type: String, ref: "QuestionModel" },
   },
-  { collection: "givenanswers" }
+  { collection: "givenanswers", timestamps: true }
 );
 export default schema;
