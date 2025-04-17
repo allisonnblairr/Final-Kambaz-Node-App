@@ -115,6 +115,9 @@ const findEnrollmentsForUser = (req, res) => {
     let { uid, cid } = req.params;
     if (uid === "current") {
       const currentUser = req.session["currentUser"];
+      if (!currentUser) {
+        return res.status(401).json({ message: "Not signed in" });
+      }
       uid = currentUser._id;
     }
     const status = await enrollmentsDao.enrollUserInCourse(uid, cid);
