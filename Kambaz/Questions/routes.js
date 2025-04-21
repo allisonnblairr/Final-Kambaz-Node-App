@@ -2,7 +2,7 @@ import * as questionsDao from "./dao.js";
 import * as possibleAnswersDao from "../PossibleAnswers/dao.js"
 import * as givenAnswersDao from "../GivenAnswers/dao.js"
 
-export default function ModuleRoutes(app) {
+export default function QuestionRoutes(app) {
   app.delete("/api/questions/:questionId", async (req, res) => {
     const {questionId} = req.params;
     const status = await questionsDao.deleteQuestion(questionId);

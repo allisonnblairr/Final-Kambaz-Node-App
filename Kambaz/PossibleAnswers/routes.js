@@ -1,5 +1,5 @@
 import * as possibleAnswerDao from "./dao.js";
-export default function ModuleRoutes(app) {
+export default function PossibleAnswerRoutes(app) {
   app.delete("/api/possibleanswers/:possibleAnswerId", async (req, res) => {
    const { possibleAnswerId } = req.params;
    const status = await possibleAnswerDao.deletePossibleAnswer(possibleAnswerId);
