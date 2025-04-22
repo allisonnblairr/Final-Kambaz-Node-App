@@ -21,7 +21,7 @@ import PossibleAnswerRoutes from './Kambaz/PossibleAnswers/routes.js';
 import GivenAnswerRoutes from './Kambaz/GivenAnswers/routes.js';
 import MongoStore from 'connect-mongo';
 
-const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
+const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27018/kambaz"
 mongoose.connect(CONNECTION_STRING);
 const app = express()
 app.use(
