@@ -2,7 +2,7 @@ import * as quizzesDao from "./dao.js";
 import * as questionsDao from "../Questions/dao.js"
 import * as quizAttemptsDao from "../QuizAttempts/dao.js"
 
-export default function ModuleRoutes(app) {
+export default function QuizRoutes(app) {
   app.delete("/api/quizzes/:quizId", async (req, res) => {
     const {quizId} = req.params;
     const status = await quizzesDao.deleteQuiz(quizId);

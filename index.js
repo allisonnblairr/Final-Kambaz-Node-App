@@ -14,6 +14,11 @@ import CourseRoutes from "./Kambaz/Courses/routes.js";
 import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
 import EnrollmentsRoutes from "./Kambaz/Enrollments/routes.js";
+import QuizRoutes from './Kambaz/Quizzes/routes.js';
+import QuizAttemptRoutes from './Kambaz/QuizAttempts/routes.js';
+import QuestionRoutes from './Kambaz/Questions/routes.js';
+import PossibleAnswerRoutes from './Kambaz/PossibleAnswers/routes.js';
+import GivenAnswerRoutes from './Kambaz/GivenAnswers/routes.js';
 import MongoStore from 'connect-mongo';
 
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27018/kambaz"
@@ -50,6 +55,11 @@ CourseRoutes(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
 EnrollmentsRoutes(app);
+QuizRoutes(app);
+QuizAttemptRoutes(app);
+QuestionRoutes(app);
+PossibleAnswerRoutes(app);
+GivenAnswerRoutes(app);
 PathParameters(app);
 QueryParameters(app);
 WorkingWithObjects(app);
