@@ -19,6 +19,11 @@ export default function QuestionRoutes(app) {
     const possibleAnswers = await possibleAnswersDao.findPossibleAnswersForQuestion(questionId);
     res.json(possibleAnswers);
   });
+  app.get("/api/questions/:questionId/possibleanswers/:paId", async (req, res) => {
+    const {questionId, paId} = req.params;
+    const possibleAnswer = await possibleAnswersDao.findPossibleAnswerForQuestionById(questionId, paId);
+    res.json(possibleAnswer);
+  });
   app.post("/api/questions/:questionId/possibleanswers", async (req, res) => {
     const {questionId} = req.params;
     const possibleAnswer = {
