@@ -1,6 +1,7 @@
 import * as dao from "./dao.js";
 import * as courseDao from "../Courses/dao.js";
 import * as enrollmentsDao from "../Enrollments/dao.js";
+import * as quizAttemptsDao from "../QuizAttempts/dao.js"
 
 export default function UserRoutes(app) {
   const createUser = async (req, res) => {
@@ -148,4 +149,9 @@ const findEnrollmentsForUser = (req, res) => {
   app.post("/api/users/profile", profile);
   app.get("/api/users", findAllUsers);
   app.get("/api/users/:userId", findUserById);
+  app.get("/api/users/:userId/courses/:cid/quizzes/:quizId/quizattempts", async (req, res) => {
+    const {quizId, userId} = req.params;
+    const quizAttempt = await quizAttemptsDao.findQuizAttemptForQuiz(quizId, userId);
+    res.json(quizAttempt);
+  });
 }

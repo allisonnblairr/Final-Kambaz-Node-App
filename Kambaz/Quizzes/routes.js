@@ -28,11 +28,6 @@ export default function QuizRoutes(app) {
     const newQuestion = await questionsDao.createQuestion(question);
     res.send(newQuestion);
   });
-  app.get("/api/quizzes/:quizId/quizattempts", async (req, res) => {
-    const {quizId} = req.params;
-    const quizAttempts = await quizAttemptsDao.findQuizAttemptsForQuiz(quizId);
-    res.json(quizAttempts);
-  });
   app.post("/api/quizzes/:quizId/quizattempts", async (req, res) => {
     const {quizId} = req.params;
     const quizAttempt = {

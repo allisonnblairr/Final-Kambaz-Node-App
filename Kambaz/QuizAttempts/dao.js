@@ -1,8 +1,8 @@
 import model from "./model.js";
 import { v4 as uuidv4 } from "uuid";
 
-export function findQuizAttemptsForQuiz(quizId) {
-    return model.find({ quizId: quizId });
+export function findQuizAttemptForQuiz(quizId, userId) {
+    return model.find({ quizId: quizId, userId: userId });
 }
 export function createQuizAttempt(quizAttempt) {
     const newQuizAttempt = { ...quizAttempt, _id: uuidv4() };
