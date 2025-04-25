@@ -11,8 +11,11 @@ export default function QuestionRoutes(app) {
   app.put("/api/questions/:questionId", async (req, res) => {
     const {questionId} = req.params;
     const questionUpdates = req.body;
-    const status = await questionsDao.updateQuestion(questionId, questionUpdates);
-    res.send(status);
+    await questionsDao.updateQuestion(questionId, questionUpdates);
+
+    // fetch the updated question to return
+    const updatedQuestion = await questionsDao.findQuestionById(questionId);
+    res.json(updatedQuestion);
   });
   app.get("/api/questions/:questionId/possibleanswers", async (req, res) => {
     const {questionId} = req.params;
